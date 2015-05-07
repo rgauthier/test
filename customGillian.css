@@ -1,0 +1,107 @@
+a.style1:link
+{
+   color: #C8D7EB;
+}
+a.style1:visited
+{
+   color: #00FF00;
+   text-decoration: underline;
+}
+a.style1:active
+{
+   color: #C8D7EB
+   text-decoration: underline;
+}
+a.style1:hover
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+
+#wb_TextMenu2 a
+{
+   color: #C8D7EB;
+   text-decoration: underline;
+}
+#wb_TextMenu2 a:visited
+{
+   color: #C8D7EB;
+}
+#wb_TextMenu2 a:active
+{
+   color: #C8D7EB;
+}
+#wb_TextMenu2 a:hover
+{
+   color: #3A92fF;
+   text-decoration: underline;
+}
+
+.calcTable
+{
+	margin-bottom: 0px;
+	display: inline;
+	width: 25px;
+	border-right-width: 0px;
+	margin-right: 5px;
+	margin-top: 0px;
+	border-radius: none;
+	border:none;
+	padding: 0px;
+	position: relative;
+	box-shadow:inset 0px 2px 7px #aaa;
+}
+
+.radioOveride
+{
+	margin-bottom: 0px;
+	display: inline;
+	width: 25px;
+	border-right-width: 0px;
+	margin-right: 5px;
+	margin-top: 0px;
+	border-radius: none;
+	border:none;
+	padding: 0px;
+	position: relative;
+	box-shadow:none;
+}
+
+
+.rnd_container {
+	background: #C8D7EB; 
+	margin:1px;padding:10px;
+	border-radius:1em;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	 background-color:#fff;
+	    border-style:solid;
+	    border-width:1px; 
+    	box-shadow:10px 10px 5px #888888;
+}
+
+.calcButton {
+
+-moz-box-shadow: 3px 3px 4px #000;
+			-webkit-box-shadow: 3px 3px 4px #000;
+			box-shadow: 3px 3px 4px #000;
+			/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+}
+
+button:hover{
+     background:  #3A92fF;
+}
+
+.rounded-corners {
+     -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    margin:5px;
+    background: #880000;
+    color:#fff
+}

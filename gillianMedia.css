@@ -1,0 +1,47 @@
+@media screen and (max-width: 550px) {
+	#KristyCoverImg {
+		padding-left:0%;
+	}
+	#Image1 {
+		display:none;
+	}
+	#Image3 {
+		display:none;
+	}
+	#Image4 {
+		display:block;
+	}
+	#resSeminars {
+		font-family:Arial;
+		font-size:12px;
+	}
+	#headertext{
+		font-size:16px;
+		horizontal-align: centre;
+		vertical-align: centre;
+	}
+	#header {
+		height:30px;
+
+	}
+
+}
+
+@media screen and (max-width: 999px) and (min-width: 551px){
+			#KristyCoverImg {
+				padding-left:5%;
+			}
+			#Image4 {
+				display:none;
+			}
+}
+
+@media screen and (min-width: 1000px) {
+	#Image3 {
+		display:block;
+	}
+	#Image4 {
+		display:none;
+	}
+
+}
