@@ -1,0 +1,127 @@
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+   font-family: Arial;
+   font-size: 13px;
+   margin: 0;
+   padding: 0;
+}
+
+a
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+a:visited
+{
+   color: #800080;
+}
+a:active
+{
+   color: #FF0000;
+}
+a:hover
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+
+.Editbox
+{
+   border: 3px #A9A9A9 solid;
+   background-color: #FFFFFF;
+   color :#000000;
+   font-family: 'Droid Sans';
+   font-weight: bold;
+   font-size: 19px;
+   padding: 0px 5px 0px 0px;
+   text-align: right;
+   vertical-align: middle;
+   -moz-box-shadow: 2px 2px 2px #000000;
+   -webkit-box-shadow: 2px 2px 2px #000000;
+   box-shadow: 2px 2px 2px #000000;
+}
+
+.wb_Text 
+{
+   background-color: transparent;
+   border: 0px #000000 solid;
+   padding: 0;
+   text-align: center;
+}
+
+.wb_Text_house
+{
+   padding-top: 10px;
+   text-align: left;
+}
+
+.wb_Text div
+{
+   text-align: left;
+}
+
+.autoButton
+{
+   border: 1px #A9A9A9 solid;
+   background-color: #C0C0C0;
+   color: #000000;
+   font-family: 'Droid Sans';
+   font-size: 16px;
+   -moz-box-shadow: 2px 2px 2px #000000;
+   -webkit-box-shadow: 2px 2px 2px #000000;
+   box-shadow: 2px 2px 2px #000000;
+   white-space: normal;
+   width:60px;
+   height:40px;
+}
+
+.houseButton
+{
+   width:80px;
+}
+
+.powerOn
+{
+	background-color:#008000;
+	color: #ffffff;
+}
+
+.powerOff
+{
+	background-color:#FF4500;
+	color: #000000;
+}
+
+.lightOn
+{
+   background-color:#F0E68C;
+   color: #ffffff;
+}
+
+.lightOff
+{
+   background-color:#C0C0C0;
+   color: #000000;
+}
+
+.curtainOpen
+{
+   background-color:#F0E68C;
+   color: #ffffff;
+}
+
+.curtainClosed
+{
+   background-color:#C0C0C0;
+   color: #000000;
+}
+
+.titleHeader
+{
+   color:#000000;
+   font-family:'Droid Sans';
+   font-size:21px;
+}
+
