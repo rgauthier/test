@@ -51,6 +51,12 @@ a:hover
    text-align: center;
 }
 
+.wb_Text_house
+{
+   padding-top: 10px;
+   text-align: left;
+}
+
 .wb_Text div
 {
    text-align: left;
@@ -69,6 +75,11 @@ a:hover
    white-space: normal;
    width:60px;
    height:40px;
+}
+
+.houseButton
+{
+   width:80px;
 }
 
 .powerOn
