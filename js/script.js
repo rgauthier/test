@@ -21,11 +21,15 @@ $(document).ready(function() {
 var adjustMenu = function() {
 			
 		$(".nav li").unbind('mouseenter mouseleave');
+		
 		$(".nav li a.parent").unbind('click').bind('click', function(e) {
+		   if($("#powerBtn").hasClass("powerOn")) {	
 			// must be attached to anchor element to prevent bubbling
 			e.preventDefault();
 			$(this).parent("li").toggleClass("hover");
+		   }
 		});
+		//}
 
 		$('#wb_TextMenu2 a').click(function(e) {
 		    if(!e.currentTarget.className.length){
@@ -35,7 +39,7 @@ var adjustMenu = function() {
 			e.preventDefault();
 	 	    }
 		});
-		$("#gillianMenu").css("margin-left","0px");
+		
 
 }
 

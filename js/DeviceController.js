@@ -94,7 +94,7 @@
  ****************************************************************/
  function CurtainDevice(id, type, state) {
     CurtainDevice.prototype = new Device();
-    CurtainDevice.prototype.constructor=LightDevice;
+    CurtainDevice.prototype.constructor=CurtainDevice;
 
     this.id = id;
     this.type = type;
@@ -115,7 +115,7 @@
  ****************************************************************/
  function ThermostatDevice(id, type, state) {
     ThermostatDevice.prototype = new Device();
-    ThermostatDevice.prototype.constructor=LightDevice;
+    ThermostatDevice.prototype.constructor=ThermostatDevice;
 
     this.id = id;
     this.type = type;
@@ -124,9 +124,9 @@
 
     //no-op function that must be over-ridden to provide the 
     //desired functionality for the devices in question
-    LightDevice.prototype.turnOn = function(controlId) {;}
-    LightDevice.prototype.turnOff = function(controlId) {;}
-    LightDevice.prototype.setTemperature = function(controlId, temprature){;}
-    LightDevice.prototype.increaseTemperature = function(controlId) {;}
-    LightDevice.prototype.IncreaseTemperature = function(controlId) {;}
+    ThermostatDevice.prototype.turnOn = function(controlId) {;}
+    ThermostatDevice.prototype.turnOff = function(controlId) {;}
+    ThermostatDevice.prototype.setTemperature = function(controlId, temprature){;}
+    ThermostatDevice.prototype.increaseTemperature = function(controlId) {;}
+    ThermostatDevice.prototype.decreaseTemperature = function(controlId) {;}
 }

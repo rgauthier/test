@@ -53,7 +53,7 @@
   function curtainHandler( event, targetDeviceId, state, requestWidgetId) {
       var curtainBtn = $("#" + targetDeviceId);
      
-      if(state == "open") {      
+      if(state == "closed") {      
         curtainBtn.removeClass( "curtainClosed" ).addClass( "curtainOpen" );
         curtainBtn.val("Curtains (Open)");
       }
@@ -79,7 +79,7 @@
  * a confirmation event is triggered for the requesting device. 
  *
  ****************************************************************/
-  function temperatureHandler( event, targetDeviceId, temperature ) {
+  function temperatureHandler( event, targetDeviceId, temperature, controlId ) {
         var thermostat = $("#" + targetDeviceId);
        thermostat.val(temperature); 
 
