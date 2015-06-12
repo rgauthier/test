@@ -12,6 +12,7 @@
         $( document ).on( "curtainEvent", curtainHandler);
         $( document ).on( "temperatureSetEvent", temperatureHandler);
         $( document ).on( "GetAllDevicesReturnedEvent", getAllDevicesReturned);
+
     }
 
   /****************************************************************

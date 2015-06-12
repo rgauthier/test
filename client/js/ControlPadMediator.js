@@ -5,7 +5,7 @@
          * initControllerItemListeners
          *
          * add controller listeners for requested opperation confirmation 
-         * events
+         * events and click evnets for control pad
          * 
          ****************************************************************/
           ControlPadMediator.register = function() {
@@ -13,6 +13,44 @@
             $( document ).on( "confirmLightingEvent", confirmLighting);
             $( document ).on( "confirmCurtainEvent", confirmCurtain);
             $( document ).on( "GetAllDevicesReturnedEvent", getAllDevicesReturned);
+
+            //create click event handlers for control Pad portion of UI
+            $( "#LightControlBtn" ).click(function() {
+               ControlPadMediator.toggleLight('LightControlBtn', 'livingRoom');
+            });
+
+            $( "#CurtainControlBtn" ).click(function() {
+               ControlPadMediator.toggleCurtain('CurtainControlBtn', 'livingRoom');
+            });
+
+            $( "#downTempBtn" ).click(function() {
+               ControlPadMediator.decreaseTemperature('tempSettingTxt','livingRoom');
+            });
+
+            $( "#upTempBtn" ).click(function() {
+               ControlPadMediator.increaseTemperature('tempSettingTxt','livingRoom');
+            });
+
+            $( "#LightControlBtn2" ).click(function() {
+                ControlPadMediator.toggleLight('LightControlBtn2', 'kitchen');
+            });
+
+            $( "#CurtainControlBtn2" ).click(function() {
+               ControlPadMediator.toggleCurtain('CurtainControlBtn2', 'kitchen');
+            });
+
+            $( "#downTempBtn2" ).click(function() {
+               ControlPadMediator.decreaseTemperature('tempSettingTxt2','kitchen');
+            });
+
+            $( "#upTempBtn2" ).click(function() {
+               ControlPadMediator.increaseTemperature('tempSettingTxt2','kitchen');
+            });
+
+             $( "#powerBtn" ).click(function() {
+               ControlPadMediator.togglePower();
+            });
+
           }
 
 
