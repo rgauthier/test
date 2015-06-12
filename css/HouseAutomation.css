@@ -8,24 +8,7 @@ body
    padding: 0;
 }
 
-a
-{
-   color: #0000FF;
-   text-decoration: underline;
-}
-a:visited
-{
-   color: #800080;
-}
-a:active
-{
-   color: #FF0000;
-}
-a:hover
-{
-   color: #0000FF;
-   text-decoration: underline;
-}
+
 
 .Editbox
 {
@@ -68,8 +51,8 @@ a:hover
 .autoButton
 {
    border: 1px #A9A9A9 solid;
-   background-color: #C0C0C0;
-   color: #000000;
+   background-color: #0537FA;;
+   color: #ffffff;
    font-family: 'Droid Sans';
    font-size: 16px;
    -moz-box-shadow: 2px 2px 2px #000000;
@@ -98,13 +81,17 @@ a:hover
 
 .powerOn
 {
-	background-color:#008000;
+   font-family: 'Droid Sans';
+   font-size: 16px;
+	background-color:#0537FA;
 	color: #ffffff;
 }
 
 .powerOff
 {
-	background-color:#FF4500;
+   font-family: 'Droid Sans';
+   font-size: 16px;
+	background-color:#666362;
 	color: #000000;
 }
 
@@ -151,7 +138,7 @@ a:hover
 
 .titleHeaderPhone
 {
-   color:#FFFFFF;
+   color:#0537FA;
    font-family:'Droid Sans';
    font-size:21px;
    margin-left: 60px;

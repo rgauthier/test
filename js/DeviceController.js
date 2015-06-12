@@ -51,6 +51,23 @@
     }
  }
 
+function extend(Child, Parent) {
+    var F = function(){};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.uber = Parent.prototype;
+}
+
+function extend2(Child, Parent) {
+    var p = Parent.prototype;
+    var c = Child.prototype;
+    for (var i in p) {
+        c[i] = p[i];
+    }
+    c.uber = p;
+}
+
 /****************************************************************
  * Device
  *
@@ -73,8 +90,7 @@
  * 
  ****************************************************************/
  function LightDevice(id, type, state) {
-    LightDevice.prototype = new Device();
-    LightDevice.prototype.constructor=LightDevice;
+    extend2(LightDevice, Device);
     this.id = id;
     this.type = type;
     this.state = state;
@@ -93,8 +109,7 @@
  * 
  ****************************************************************/
  function CurtainDevice(id, type, state) {
-    CurtainDevice.prototype = new Device();
-    CurtainDevice.prototype.constructor=CurtainDevice;
+    extend2(CurtainDevice, Device);
 
     this.id = id;
     this.type = type;
@@ -114,8 +129,7 @@
  * 
  ****************************************************************/
  function ThermostatDevice(id, type, state) {
-    ThermostatDevice.prototype = new Device();
-    ThermostatDevice.prototype.constructor=ThermostatDevice;
+     extend2(ThermostatDevice, Device);
 
     this.id = id;
     this.type = type;

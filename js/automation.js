@@ -24,7 +24,7 @@
                var curtainCtrlBtn = $("#" + arg1);
                if ( curtainCtrlBtn.is( ".curtainOpen" ) ) {
                    curtainCtrlBtn.removeClass( "curtainOpen" ).addClass( "curtainClosed" );
-                   curtainCtrlBtn.css("background","blue");
+                   curtainCtrlBtn.css("background","#7D8089");
                    curtainCtrlBtn.text("Curtains (Closed)");
                } else {
                    curtainCtrlBtn.removeClass( "curtainClosed" ).addClass( "curtainOpen" );
@@ -44,7 +44,7 @@
            var lightCtrlBtn = $("#" + arg1);
            if ( lightCtrlBtn.is( ".lightOn" ) ) {
                lightCtrlBtn.removeClass( "lightOn" ).addClass( "lightOff" );
-                lightCtrlBtn.css("background","blue");
+                lightCtrlBtn.css("background","#7D8089");
                lightCtrlBtn.text("Light (Off)");
            } else {
                lightCtrlBtn.removeClass( "lightOff" ).addClass( "lightOn" );
@@ -166,8 +166,26 @@
             createLivingRoom(houseController);
             createKitchen(houseController);
          
+            intializePanel2();
          }
 
+        function intializePanel2() {
+            jQuery.ajax({
+               type: "GET",
+               url: "http://localhost:8080/HouseAutomationService/rest/json/device/getAllDevices",
+               contentType: "application/json; charset=utf-8",
+               dataType: "json",
+               success: function (data, status, jqXHR) {
+                   var parsed = JSON.parse(data);
+                   var i = 0;
+                   i++
+               },
+
+               error: function (jqXHR, status) {
+                   // error handler
+               }
+            });
+         }
 
         /****************************************************************
          * createLivingRoom
@@ -249,9 +267,9 @@
 
             //initialize UI controller panel
             $("#LightControlBtn").val("Light   (" + light.state + ")");
-            $("#LightControlBtn").css("background","blue");
+            $("#LightControlBtn").css("background","#7D8089");
             $("#CurtainControlBtn").val("Curtain   (" + curtain.state + ")");
-            $("#CurtainControlBtn").css("background","blue");
+            $("#CurtainControlBtn").css("background","#7D8089");
             $("#tempSettingTxt").val(thermostat.temperature + " C");
             temperature = Number(thermostat.temperature);
         }
@@ -332,9 +350,9 @@
             room.devices.push(thermostat);
 
             $("#LightControlBtn2").val("Light   (" + light.state + ")");
-            $("#LightControlBtn2").css("background","blue");
+            $("#LightControlBtn2").css("background","#7D8089");
             $("#CurtainControlBtn2").val("Curtain   (" + curtain.state + ")");
-            $("#CurtainControlBtn2").css("background","blue");
+            $("#CurtainControlBtn2").css("background","#7D8089");
             $("#tempSettingTxt2").val(thermostat.temperature + " C");
             
             temperature = Number(thermostat.temperature);
