@@ -1,0 +1,129 @@
+body, nav, ul, li, a  {margin: 0px; padding: 0px; border: 0px}
+body {
+   font-family: font-family:Arial, Helvetica, sans-serif; 
+   background: #FFFFFF;}
+a {text-decoration: none;}
+
+li {
+    padding:1px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+    background: #FFF;
+   
+}
+.toggleMenu {
+    display:  none;
+    background: #8E140C;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius:5px;
+}
+.nav {
+     list-style: none;
+     background:#E7ECED;
+     margin:10px 20px 0px 20px;   
+     border:2px solid; 
+     border-radius:5px;
+     border-color: #0537FA;
+     width:300px;
+}
+
+.nav ul {
+    list-style: none;
+    width: 9em;
+
+}
+.nav a {
+    padding: 5px 20px;
+    color:#0537FA;
+    border-radius:5px;
+    font-weight: bold;
+    font-family:'Droid Sans';
+    font-size:16px;
+    text-align:center;
+}
+
+.nav li:hover {
+    background: #9AADF5;
+    border-radius:5px;
+}
+
+.nav li {
+    position: relative;
+}
+.nav > li {
+    border-bottom: 2px solid #0537FA;
+    border-right: 1px solid #104336;
+}
+.nav > li > .parent {
+    background-image: url("../images/downArrow.png");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.nav > li > a:after{ content:''; position:absolute; border-right:1px solid; top:0px; bottom:0px; right:-2px; z-index:99; }
+
+.nav > li > a {
+    display: block;
+}
+.nav li  ul {
+    position: absolute;
+    left: -9999px;
+}
+.nav > li.hover > ul {
+    left: 0;
+}
+
+.nav > ul > li > a:after{ content:''; position:absolute; border-right:15px solid; top:0px; bottom:0px; right:-2px; z-index:99; }
+
+.nav > ul > li > ul 
+{
+    border-top: solid;
+    background:rgb(133, 171, 244);
+    border-color: #0537FA;
+}
+
+.nav li li a {
+    display: block;
+    background: #7D8089;
+    position: relative;
+    z-index:100;
+}
+
+.nav li li a:hover {
+	background:#B9BAC0;
+}
+
+.active {
+    display: block;
+}
+
+.nav > li {
+    float: none;
+    border-top: 1px solid #104336;
+ }
+
+.nav > li > .parent {
+    background-position: 95% 50%;
+}
+
+.nav ul {
+    display: block;
+    width: 100%;
+}
+.nav > li.hover > ul {
+    position: static;
+}
+.nav a {
+    padding: 15px 20px;
+}
+
+.centerDiv {
+    width: 50%;
+    margin: 0 auto; 
+}
