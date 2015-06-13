@@ -72,6 +72,7 @@
                  $( "#CurtainControlBtn" ).attr('disabled','disabled');
                  $( "#downTempBtn" ).attr('disabled','disabled');
                  $( "#upTempBtn" ).attr('disabled','disabled');
+                 $( document ).trigger( "DeviceOffEvent");
              } else {
                  powerBtn.removeClass( "powerOff" ).addClass( "powerOn" );
                  $( "#powerBtn" ).val("Device On");

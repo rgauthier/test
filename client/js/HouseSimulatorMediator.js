@@ -12,6 +12,7 @@
         $( document ).on( "curtainEvent", curtainHandler);
         $( document ).on( "temperatureSetEvent", temperatureHandler);
         $( document ).on( "GetAllDevicesReturnedEvent", getAllDevicesReturned);
+        $( document ).on( "DeviceOffEvent", turnOffPanel);
 
     }
 
@@ -123,6 +124,38 @@
         //todo - add error handling to UI here
     }
 
+    /****************************************************************
+    * turnOffPanel
+    *
+    * Event listener for when the remote device is turned off.
+    * When event is received, the house simulator will turn off
+    * and will toggle to off
+    *
+    ****************************************************************/
+    function turnOffPanel(event) {
+        if ( $("#houseLightIndicator1").is( ".lightOn" ) ) {
+           $("#houseLightIndicator1").removeClass( "lightOn" ).addClass( "lightOff" );
+           $("#houseLightIndicator1").val("Light (Off)");
+         }
+
+        if ( $("#houseCurtainIndicator1").is( ".curtainOpen" ) ) {
+           $("#houseCurtainIndicator1").removeClass( "curtainOpen" ).addClass( "curtainClosed" );
+           $("#houseCurtainIndicator1").val("Curtains (Closed)");
+         }
+
+        if ( $("#houseLightIndicator2").is( ".lightOn" ) ) {
+           $("#houseLightIndicator2").removeClass( "lightOn" ).addClass( "lightOff" );
+           $("#houseLightIndicator2").val("Light (Off)");
+         }
+
+        if ( $("#houseCurtainIndicator2").is( ".curtainOpen" ) ) {
+           $("#houseCurtainIndicator2").removeClass( "curtainOpen" ).addClass( "curtainClosed" );
+           $("#houseCurtainIndicator2").val("Curtains (Closed)");
+         }
+
+         $("#Thermostat1").val("");
+         $("#Thermostat2").val("");
+    }
 
     /****************************************************************
     * initLivingRoom
@@ -142,7 +175,7 @@
             $("#houseCurtainIndicator1").removeClass( "curtainClosed" ).addClass( "curtainOpen" );
             $("#houseCurtainIndicator1").val("Curtains (Open)");
         } else {
-             $("#houseCurtainIndicator1").val("Curtains (closed)");
+             $("#houseCurtainIndicator1").val("Curtains (Closed)");
         }
 
         $("#Thermostat1").val(data.thermostat.state);
@@ -166,7 +199,7 @@
             $("#houseCurtainIndicator2").removeClass( "curtainClosed" ).addClass( "curtainOpen" );
             $("#houseCurtainIndicator2").val("Curtains (Open)");
         } else {
-             $("#houseCurtainIndicator2").val("Curtains (closed)");
+             $("#houseCurtainIndicator2").val("Curtains (Closed)");
         }
 
         $("#Thermostat2").val(data.thermostat.state);
