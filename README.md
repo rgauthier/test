@@ -91,7 +91,8 @@ At this point you should have a client directories and a war file that you've ad
 
 Once this is confirmed, open a command prompt in the tomcat /bin directory and enter:
 
-    Startup.bat
+    startup.bat (on windows)
+    startup.sh (on Mac and Unix)
 
 Once the server is started you can use the web application
 
