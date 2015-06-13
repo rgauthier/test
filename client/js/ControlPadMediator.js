@@ -199,11 +199,9 @@
                var curtainCtrlBtn = $("#" + arg1);
                if ( curtainCtrlBtn.is( ".curtainOpen" ) ) {
                    curtainCtrlBtn.removeClass( "curtainOpen" ).addClass( "curtainClosed" );
-                   curtainCtrlBtn.css("background","#7D8089");
                    curtainCtrlBtn.text("Curtains (Closed)");
                } else {
                    curtainCtrlBtn.removeClass( "curtainClosed" ).addClass( "curtainOpen" );
-                   curtainCtrlBtn.css("background","green");
                    curtainCtrlBtn.text("Curtains (Open)");
                }
            }
@@ -218,13 +216,11 @@
         function confirmLighting ( event, arg1, arg2 ) {
            var lightCtrlBtn = $("#" + arg1);
            if ( lightCtrlBtn.is( ".lightOn" ) ) {
-               //lightCtrlBtn.removeClass( "lightOn" ).addClass( "lightOff" );
-                lightCtrlBtn.css("background","#7D8089");
+                lightCtrlBtn.removeClass( "lightOn" ).addClass( "lightOff" );
                 lightCtrlBtn.text("Light (Off)");
            } else {
-               //lightCtrlBtn.removeClass( "lightOff" ).addClass( "lightOn" );
+               lightCtrlBtn.removeClass( "lightOff" ).addClass( "lightOn" );
                lightCtrlBtn.text("Light (On)");
-               lightCtrlBtn.css("background","green");
             }
         }
 
@@ -362,6 +358,7 @@
             var thermostat = new ThermostatDevice(data.thermostat.id, 
                             data.thermostat.type, 
                             data.thermostat.state);
+            
             //this associated the device controller with the actual device being 
             //controlled.  used to associate button controls with the device
             thermostat.controlId = "tempSettingTxt2";
@@ -374,16 +371,13 @@
 
         function inializeHouseControlPad(lightbtn, curtainBtn, thermostatTxt, room) {
             //initialize UI controller panel
-            var lightButtonColor = "#7D8089";
-            var curtainButtonColor = "#7D8089";
-
             $(lightbtn).text("Light   (" + room.light.state + ")");
             if(room.light.state == "on")
-               $(lightbtn).css("background","green");
+               $(lightbtn).removeClass( "lightOff" ).addClass( "lightOn" );
 
             $(curtainBtn).text("Curtain   (" + room.curtain.state + ")");
             if(room.curtain.state == "open")
-                $(curtainBtn).css("background","green");
+                $(curtainBtn).removeClass( "curtainClosed" ).addClass( "curtainOpen" );
            
             $(thermostatTxt).val(room.thermostat.state + " C");
         }

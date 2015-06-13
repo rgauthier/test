@@ -158,26 +158,22 @@ body
 
 .lightOn
 {
-   background-color:#CDBA0D;
-   color: #ffffff;
+   background:#F7F41B !important;
 }
 
 .lightOff
 {
-   background-color:#C0C0C0;
-   color: #000000;
+   background:#7D8089;
 }
 
 .curtainOpen
 {
-   background-color:#176CEF;
-   color: #ffffff;
+   background:#39ED50 !important;
 }
 
 .curtainClosed
 {
-   background-color:#C0C0C0;
-   color: #000000;
+   background:#7D8089;
 }
 
 .titleHeader

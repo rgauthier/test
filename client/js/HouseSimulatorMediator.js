@@ -29,11 +29,11 @@
        
         if(device.state == "on") {      
           lightBtn.removeClass( "lightOff" ).addClass( "lightOn" );
-          lightBtn.text("Light (On)");
+          lightBtn.val("Light (On)");
         }
         else {
           lightBtn.removeClass( "lightOn" ).addClass( "lightOff" );
-          lightBtn.text("Light (Off)");
+          lightBtn.val("Light (Off)");
         }
 
        var data = JSON.stringify(device)
@@ -124,29 +124,49 @@
     }
 
 
+    /****************************************************************
+    * initLivingRoom
+    *
+    * Initialization method for living room controls
+    *
+    ****************************************************************/
     function initLivingRoom(data) {
         if(data.light.state == "on") {
-            $("#houseLightIndicator1").text("Light (On)");
+            $("#houseLightIndicator1").val("Light (On)");
             $("#houseLightIndicator1").removeClass( "lightOff" ).addClass( "lightOn" );
+        } else {
+             $("#houseLightIndicator1").val("Light (Off)");
         }
 
         if(data.curtain.state == "open") {
-            $("#houseCurtainIndicator2").removeClass( "curtainClosed" ).addClass( "curtainOpen" );
-            $("#houseCurtainIndicator2").text("Curtains (Open)");
+            $("#houseCurtainIndicator1").removeClass( "curtainClosed" ).addClass( "curtainOpen" );
+            $("#houseCurtainIndicator1").val("Curtains (Open)");
+        } else {
+             $("#houseCurtainIndicator1").val("Curtains (closed)");
         }
 
         $("#Thermostat1").val(data.thermostat.state);
     }
 
+    /****************************************************************
+    * initKitchen
+    *
+    * Initialization method for kitchen controls
+    *
+    ****************************************************************/
     function initKitchen(data) {
         if(data.light.state == "on") {
-            $("#houseLightIndicator2").text("Light (On)");
+            $("#houseLightIndicator2").val("Light (On)");
             $("#houseLightIndicator2").removeClass( "lightOff" ).addClass( "lightOn" );
+        } else {
+            $("#houseLightIndicator2").val("Light (Off)");
         }
 
         if(data.curtain.state == "open") {
             $("#houseCurtainIndicator2").removeClass( "curtainClosed" ).addClass( "curtainOpen" );
-            $("#houseCurtainIndicator2").text("Curtains (Open)");
+            $("#houseCurtainIndicator2").val("Curtains (Open)");
+        } else {
+             $("#houseCurtainIndicator2").val("Curtains (closed)");
         }
 
         $("#Thermostat2").val(data.thermostat.state);
