@@ -47,19 +47,30 @@ Client Packaging Details
 
 **client/js**
 **ApplicationInitializer.js** – *triggers application initialization. Triggers initialization in ControlPadMediator and HouseSimulatorMediator.*
+
 **ControlPadMediator.js**– *link between house simulator portion of the view and the DeviceAutomationService.  Communicates with the controlPadMediator via events*
+
 **HouseSimulatorMediator.js** – *link between house simulator portion of the view and the DeviceAutomationService.  Communicates with the controlPadMediator via events.*
+
 **DeviceAutomationService.js** - *Communicates with the server via REST web service calls*
+
 **DeviceController.js** – *top level object in device hierarchy.  Contains rooms and devices*
+
 **Room.js** – *class that stores devices*
+
 **Device.js** – *supper class from which all devices are derived*
+
 **CurtainDevice.js** – *represents a set of curtains in the house simulation*
+
 **LightDevice.js** - *represents a Light in the house simulation*
+
 **ThermostatDevice.js** - *represents a thermostat in the house simulation*.
+
 **Utils.js** – *contains a utility function for inheritance.*
 
 **client/css**
 **ControlPad.css** -  *css for the menu interaction portion of the control pad*
+
 **HouseAutomation.css** -  *Genearl css style for entire application.*
 
 
