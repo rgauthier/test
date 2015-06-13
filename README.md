@@ -1,4 +1,4 @@
-![enter image description here](![enter image description here](https://evrythng.com/wp-content/uploads/2014/06/home-automation-slide.jpg)
+![enter image description here](https://evrythng.com/wp-content/uploads/2014/06/home-automation-slide.jpg)
 
 **Home Automation Device Controller**
 -------------------------------------
@@ -27,6 +27,8 @@ If you do not have a copy of Tomcat 7, you may download if from the following lo
 
 [Apache Tomcat 7](https://tomcat.apache.org/download-70.cgi)
 
+**Tomcat 7.0 requires Java SE 6 or later. Read the RELEASE-NOTES and the RUNNING.txt file in the distribution for more details.**
+
 To build the server go into the server/HouseAutomationService directory in a command window and run the maven build with the following command:
 
 	
@@ -35,7 +37,31 @@ To build the server go into the server/HouseAutomationService directory in a com
 This will build the server and run the junit tests which should have no errors.  Once your build is complete, you can navigate to the target directory; *server/HouseAutomationService/target*; and retrieve the HouseAutomationService.war file.
 
 Take this file and copy it into the Tomcat */webapps* directory
-Client component
+client component
+
+Client Packaging Details
+------------------------
+
+**client/**
+**Index.html** - *The application view.  It contains two panels to control and display the results of remote manipulation.*
+
+**client/js**
+**ApplicationInitializer.js** – *triggers application initialization. Triggers initialization in ControlPadMediator and HouseSimulatorMediator.*
+**ControlPadMediator.js**– *link between house simulator portion of the view and the DeviceAutomationService.  Communicates with the controlPadMediator via events*
+**HouseSimulatorMediator.js** – *link between house simulator portion of the view and the DeviceAutomationService.  Communicates with the controlPadMediator via events.*
+**DeviceAutomationService.js** - *Communicates with the server via REST web service calls*
+**DeviceController.js** – *top level object in device hierarchy.  Contains rooms and devices*
+**Room.js** – *class that stores devices*
+**Device.js** – *supper class from which all devices are derived*
+**CurtainDevice.js** – *represents a set of curtains in the house simulation*
+**LightDevice.js** - *represents a Light in the house simulation*
+**ThermostatDevice.js** - *represents a thermostat in the house simulation*.
+**Utils.js** – *contains a utility function for inheritance.*
+
+**client/css**
+**ControlPad.css** -  *css for the menu interaction portion of the control pad*
+**HouseAutomation.css** -  *Genearl css style for entire application.*
+
 
 The client component is a web application that can be run in a browser.
 
@@ -83,67 +109,72 @@ Opening new browser sessions will pick up and initialize the web application wit
 
 **Have Fun!**
 
-**Using the HADC libraries in your application**
+*
+
+*Using the HADC libraries in your application*
+-----------------------------------------------
 
 The HADC libraries are JQuery and therefore require the inclusion of a JQuery library at the top of you application.  JQuery versions 1.9 and greater are required.
    
 
      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-The you must include the HADC library that is in the /js directory in this repository.
+The you must include the HADC libraries that is in the /js directory in this repository.
 
-    <script src="js/DeviceController.js"></script>
+       <script src="js/Utils.js"></script>
+       <script src="js/Device.js"></script>
+       <script src="js/LightDevice.js"></script>
+       <script src="js/CurtainDevice.js"></script>
+       <script src="js/ThermostatDevice.js"></script>
+       <script src="js/Room.js"></script>
+       <script src="js/DeviceController.js"></script>
+
    
 
 **Getting Started with the code**
-New custom devices may be used simply by sub-classing the Device object.
+New custom devices may be used simply by sub-classing the Device object.  For example, lets say we wanted to create a surveillance Device, we would write something similar to this:
 
-    function SurveillanceDevice(id, type, state) {
-    SurveillanceDevice.prototype = new Device();
-    SurveillanceDevice.prototype.constructor=SurveillanceDevice;
+  
 
-    this.id = id;
-    this.type = type;
-    this.state = state;
+     SurveillanceDeviceNS.SurveillanceDevice= function (id, type, state) {
+    	     extend(ThermostatDeviceNS.ThermostatDevice, DeviceNS.Device);
+    	    this.id = id;
+    	    this.type = type;
+    	    this.state = state;
+    	}
 
-    //no-op function that must be over-ridden to provide the 
-    //desired functionality for the devices in question
-    SurveillanceDevice.prototype.cameraOn = function(controlId) {;}
-    SurveillanceDevice.prototype.cameraOff = function(controlId) {;}
-}
+This example uses the "extend" util helper functions to aid in the creation of a subclass.  In this example we've taken the liberty of creating a  "SurveillanceDeviceNS" namespace wrapping the class.
 
-Implementation of device functions is implemented by overriding the device defaults.  see automation.js/createKitchen for an example.
+creation of  a function would be as follows.  Notice the event definition.  Event are how the application talks to the house simulator in the application.
 
+    SurveillanceDeviceNS.SurveillanceDeviceNS.prototype.setDevice = function(controlId, device) {
+    	    var args = new Array(device, controlId);
+    	    	    $( document ).trigger( "SurveillanceEvent", args );
+    	}
 
-    myObject.cameraOn = function(controlId) {
-	var args = new Array(this.id, "on", this.controlId);
-
-	$( document ).trigger( "SurveillanceEvent", args );
-}
-
+   
 
 HADC also allows you to create rooms to help organize devices in logical group representing the space in which the devices you wish to control exist.
 
-    var room = new Room("livingRoom", "Living Room");
+    var room = new RoomNS.Room("livingRoom", "Living Room");
 
 Finally all devices and rooms are added to the main Device Controller:
 
-    var houseController = new DeviceController("A-1", "My House");
+    var houseController = new DeviceControllerNS.DeviceController("A-1", "My House");
     
-    var room = new Room("livingRoom", "Living Room");
+    var room = new RoomNS.Room("livingRoom", "Living Room");
     houseController.rooms.push(room);
     room.devices.push(light);
 
   
    **Know issues:**
 
- -	No error message reporting capability.
+ -	No real error message reporting capability on the client or server.  This would be considered a next step given extra alloted time.
  -	Thermostats are not waiting for confirmation events to modify their temperature, they assume their operation was successful and changes the temperature.
 
 **Future enhancements:**
 
 - Dynamically create house control pad menu from device and room list.
--	Add icons to the house control pad menu.
 -	Create automated testing using QUnit
 -	Create a responsive web UI.
 
