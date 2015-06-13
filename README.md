@@ -10,6 +10,76 @@ You can create your own customized user interfaces and leverage the Home Automat
  2. A Curtain device form opening and closing curtains
  3. A Thermostat device for controlling house hold temperature on a room by room basis.
 
+Installation
+============
+The HADC application is composed of a client and server component.  
+
+The client component is an html based web application that demonstrate home automation features available.
+
+The server component is a RESTful web services library that allows the calling client application to retrieve and persist various device values from the environment being automated.
+
+Server component
+----------------
+
+The RESTful web service is build using Maven, Java 7 and run on the Tomcat 7 server.
+
+If you do not have a copy of Tomcat 7, you may download if from the following location.
+
+[Apache Tomcat 7](https://tomcat.apache.org/download-70.cgi)
+
+To build the server go into the server/HouseAutomationService directory in a command window and run the maven build with the following command:
+
+	
+    mvn clean install
+
+This will build the server and run the junit tests which should have no errors.  Once your build is complete, you can navigate to the target directory; *server/HouseAutomationService/target*; and retrieve the HouseAutomationService.war file.
+
+Take this file and copy it into the Tomcat */webapps* directory
+Client component
+
+The client component is a web application that can be run in a browser.
+
+**Supported Browsers:**
+Google Chrome
+Mozilla Firefox
+
+To install the client application copy the client directory from the git repository and place it in the Tomcat */webapps* directory
+
+Starting the Tomcat server
+--------------------------
+
+Open a command prompt in the tomcat /bin directory and enter:
+	
+
+    Startup.bat
+
+Once the server is started you can use the web application
+
+Getting started
+===============
+
+Here is a short intro how to use the HADC sample application. 
+
+Open a browser window and type in the following Url:
+
+http://localhost:8080/client/index.html
+
+This will bring up the sample HADC Web interface which is comprised of two panels side by side.  
+
+The first panel is the **House Control Panel** and is located in the image of a mobile device as is one one the possible implementations of a controller.  
+
+The second panel is the **House Emulation Panel** located on the right side of the browser.  It represents the devices being controlled by the control pad on the left.
+
+**Initializing the application** is done in the House Control Pad by pressing the "Device Off" button.  The result of pressing this button is a call from the web application to our server to retrieve the list of available devices as well as their current states.  When the Button turn blue and and says Device On, both panel on the web page will have been initialized from the server and will be in Sync.
+
+The **House Emulation Panel** will immediately display the values from the server.  To see the values in the **House Control Panel** you must expand the "living room" and "kitchen" menu items by clicking on them.  Once open, you can set the temperature, turn lights on and off, as well as open and close the curtains and see you changes reflected in the **House Emulation Panel**
+
+These changes will be persisted to the Tomcat server; WHILE IT IS RUNNING.  The persistence of data will only last for the duration of the server instance.
+
+Opening new browser sessions will pick up and initialize the web application with the last values set and recorded by the server.
+
+**Have Fun!**
+
 **Using the HADC libraries in your application**
 
 The HADC libraries are JQuery and therefore require the inclusion of a JQuery library at the top of you application.  JQuery versions 1.9 and greater are required.
@@ -20,28 +90,7 @@ The HADC libraries are JQuery and therefore require the inclusion of a JQuery li
 The you must include the HADC library that is in the /js directory in this repository.
 
     <script src="js/DeviceController.js"></script>
-    
-**Sample application**
-HADC provides you with a sample application to get you started.  It comes with a 2 room controller and a two room house device simulator UI that both run in the same browser.  The sample is in the root of the GitHub directory with this readme.  To use this sample, simply download the contents of this repository to your local file system or web server.
-
-If you install the sample application in your web server under the HADC directory then you would enter the following URL to view the application
-
-    http://localhost:8080/HADC/index.html
-
-**When the page renders**
-You will see a smart phone with a menu displayed on it.  Just below the the red stack menu you will see an orange button with "Device Off" on it.  
-
-**You must press the"Device Off"** button to turn on the UI and be able to click on the red panel with the room names.  Only when the button is green and displaying "Device On" will you be able to use the stack menu.
-
-**Device Operation**
-Lights and curtains will appear blue on the House Control Panel (on phone) when they are not active.  Pressing.
-
-The thermostat can be operated by pressing the up of the down button.
-
-**Seeing the results of device operation**
-On the right hand side of the web page is the "House Emulation Panel" which will show commands received by the House Control Pad.
-
-Light and curtains on the Control Panel will not toggle on of off  until they receive a confirmation event from the House Emulation Panel.  The thermostat does not wait for the same confirmation on the control panel.  It just changes its temperature depending on user input.  Confirmation events can be setup for any device.
+   
 
 **Getting Started with the code**
 New custom devices may be used simply by sub-classing the Device object.
@@ -85,8 +134,6 @@ Finally all devices and rooms are added to the main Device Controller:
   
    **Know issues:**
 
- - Turning House control pad “off” then “on” again changes the device temperatures back to the default.  They should take their values from the house emulation devices.
- - House emulation light and curtain indicators move on the screen when toggling lights and curtains.
  -	No error message reporting capability.
  -	Thermostats are not waiting for confirmation events to modify their temperature, they assume their operation was successful and changes the temperature.
 
@@ -94,11 +141,7 @@ Finally all devices and rooms are added to the main Device Controller:
 
 - Dynamically create house control pad menu from device and room list.
 -	Add icons to the house control pad menu.
--	Refactoring of code to simplify and reduce duplication.
 -	Create automated testing using QUnit
--	Evaluate JavaScript with lint and clean up code.
 -	Create a responsive web UI.
--	Use web friendly graphics (jpeg instead of .png) with a smaller footprint for improved performance.
--	Some UI changes like stacked menu panel color changes would be more efficient if they were CSS instead of java script
 
 > Written with [StackEdit](https://stackedit.io/).
