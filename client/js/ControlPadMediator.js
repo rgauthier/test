@@ -234,7 +234,7 @@
          ****************************************************************/
          function intializePanel() {
          	//create controller object with rooms and devices
-         	houseController = new DeviceController("A-1", "My House");
+         	houseController = new DeviceControllerNS.DeviceController("A-1", "My House");
 
             DeviceAutomationService.getAllDevices(ApplicationInitializer.destinationUrl);
 
@@ -266,12 +266,12 @@
          ****************************************************************/
         function createLivingRoom(houseController, data) {
             //create our first room.  In this case the living room  
-            var room = new Room("livingRoom", "Living Room");
+            var room = new RoomNS.Room("livingRoom", "Living Room");
             houseController.rooms.push(room);
             
             //create a light device and give it the id of the target device in 
             //our house simulation
-            var light = new LightDevice(data.light.id, 
+            var light = new LightNS.LightDevice(data.light.id, 
                             data.light.type, 
                             data.light.state);
             
@@ -283,7 +283,7 @@
             
             //create a curtain device and give it the id of the target device in 
             //our house simulation
-            var curtain = new CurtainDevice(data.curtain.id, 
+            var curtain = new CurtainDeviceNS.CurtainDevice(data.curtain.id, 
                             data.curtain.type, 
                             data.curtain.state);
 
@@ -302,7 +302,7 @@
             
             //create a thermostat device and give it the id of the target device in 
             //our house simulation
-            var thermostat = new ThermostatDevice(data.thermostat.id, 
+            var thermostat = new ThermostatDeviceNS.ThermostatDevice(data.thermostat.id, 
                             data.thermostat.type, 
                             data.thermostat.state);
 
@@ -325,12 +325,12 @@
          ****************************************************************/
         function createKitchen(houseController, data) {
             //create our second room.  In this case the living room  
-            var room = new Room("kitchen", "Kitchen");
+            var room = new RoomNS.Room("kitchen", "Kitchen");
             houseController.rooms.push(room);
             
             //create a light device and give it the id of the target device in 
             //our house simulation
-            var light = new LightDevice(data.light.id, 
+            var light = new LightNS.LightDevice(data.light.id, 
                             data.light.type, 
                             data.light.state);
             
@@ -343,7 +343,7 @@
             
             //create a curtain device and give it the id of the target device in 
             //our house simulation
-            var curtain = new CurtainDevice(data.curtain.id, 
+            var curtain = new CurtainDeviceNS.CurtainDevice(data.curtain.id, 
                             data.curtain.type, 
                             data.curtain.state);
 
@@ -355,7 +355,7 @@
             
             //create a thermostat device and give it the id of the target device in 
             //our house simulation
-            var thermostat = new ThermostatDevice(data.thermostat.id, 
+            var thermostat = new ThermostatDeviceNS.ThermostatDevice(data.thermostat.id, 
                             data.thermostat.type, 
                             data.thermostat.state);
             
