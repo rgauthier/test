@@ -47,9 +47,12 @@ To install the client application copy the client directory from the git reposit
 
 Starting the Tomcat server
 --------------------------
+At this point you should have a client directories and a war file that you've added to your tomcat /webapps directory:
 
-Open a command prompt in the tomcat /bin directory and enter:
-	
+    /webapps/client
+    /webapps/HouseAutomationService.war
+
+Once this is confirmed, open a command prompt in the tomcat /bin directory and enter:
 
     Startup.bat
 
